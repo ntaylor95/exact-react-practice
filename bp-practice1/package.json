@@ -1,0 +1,42 @@
+{
+  "name": "bp-practice1",
+  "description": "Fill this in",
+  "version": "1.0.0",
+  "createExactAppVersion": "0.0.29",
+  "main": "./src/main.js",
+  "dependencies": {
+    "@babel/core": "^7",
+    "@babel/plugin-transform-runtime": "^7",
+    "@babel/preset-env": "^7",
+    "@babel/preset-react": "^7",
+    "@babel/register": "^7",
+    "axios": "^0.19.2",
+    "babel-loader": "^8",
+    "compression": "^1",
+    "cowsay2": "^2",
+    "emotion": "^10",
+    "emotion-server": "^10",
+    "eslint": "^6",
+    "eslint-plugin-react": "^7",
+    "express": "^5.0.0-alpha.8",
+    "glob": "^7",
+    "htmlescape": "^1.1.1",
+    "react": "^16",
+    "react-dom": "^16",
+    "react-router": "^5",
+    "react-router-dom": "^5",
+    "webpack": "^4",
+    "webpack-cli": "^3"
+  },
+  "devDependencies": {
+    "concurrently": "^5",
+    "nodemon": "^2"
+  },
+  "scripts": {
+    "build": "npm run lint && webpack --mode production",
+    "dev": "NODE_ENV=development NODE_OPTIONS=\"-r @babel/register\" concurrently -n webpack,node -c blue,green \"webpack --mode development --watch\" \"nodemon --watch src/\"",
+    "dev-min": "NODE_ENV=development NODE_OPTIONS=\"-r @babel/register\" concurrently -n webpack,node -c blue,green \"webpack --mode production --watch\" \"nodemon --watch src/\"",
+    "lint": "eslint src",
+    "start": "NODE_ENV=production node -r @babel/register src/main.js"
+  }
+}
